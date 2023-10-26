@@ -11,7 +11,7 @@ export default function () {
   return (
     <>
       {!isAuthenticated ? (
-        <div className="h-full p-5 text-center">
+        <div className="h-[calc(100vh-61px)] lg:h-[calc(100vh-100px)] flex flex-col justify-center items-center p-5 text-center">
           <h1 className="text-2xl font-bold">You are not logged in</h1>
           <p className="text-lg">Please login to view your profile</p>
           <Link

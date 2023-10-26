@@ -20,7 +20,7 @@ export default function ProductCarrousel({
           <p className="line-through text-cgray-200">{oldPrice}</p>
         </div>
       </div>
-      <p className="text-sm text-start mb-4 text-black">{category}</p>
+      <p className="text-sm text-start mb-4 text-black">{category.name}</p>
       <Link
         href={`/products/${parseUrl(title)}`}
         className="min-w-full py-4 block text-center bg-[#FFBCCC]"

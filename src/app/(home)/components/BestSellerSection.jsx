@@ -8,6 +8,7 @@ import { SwiperSlide } from "swiper/react";
 
 export default function BestSellerSection() {
   const { trendingProducts } = useHome();
+  console.log("🚀 ~ file: BestSellerSection.jsx:11 ~ BestSellerSection ~ trendingProducts:", trendingProducts)
   const breakpoint = useBreakpoint();
 
   const slides = trendingProducts.map((item, i) => (
@@ -23,8 +24,8 @@ export default function BestSellerSection() {
         key={i}
         title={item.title}
         image={item.image}
-        oldPrice={item.oldPrice}
-        newPrice={item.newPrice}
+        oldPrice={item.variants[0].price}
+        newPrice={item.variants[0].sale_price}
         category={item.category}
       />
     </SwiperSlide>

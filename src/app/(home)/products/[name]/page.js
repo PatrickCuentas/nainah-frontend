@@ -51,7 +51,7 @@ export default function ({ params: { name } }) {
   return (
     <Container>
       <div className="p-5">
-        <div className="bg-white flex flex-row lg:flex-col gap-5">
+        <div className="bg-white lg:flex  lg:flex-col gap-5">
           <div className="block lg:flex">
             <img
               src={currentVariant?.image}
@@ -130,7 +130,7 @@ export default function ({ params: { name } }) {
           </div>
         </div>
         <div className="mt-4">
-          <h3 className="font-bold text-lg text-black">Description</h3>
+          <h3 className="font-bold text-lg mb-2 text-black">Description</h3>
           <div dangerouslySetInnerHTML={{ __html: product?.description }} />
         </div>
         <RelatedProductsSection title={encodedTitle} />
