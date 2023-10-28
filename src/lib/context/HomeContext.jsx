@@ -6,30 +6,31 @@ import Spinner from "../ui/Spinner";
 const HomeContext = createContext({});
 
 export const HomeProvider = ({ children }) => {
-  const [handbags, setHandbags] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [bestSellersProducts, setBestSellersProducts] = useState([]);
-  const [trendingProducts, setTrendingProducts] = useState([]);
-  const [catalogs, setCatalogs] = useState([]);
-  const [colors, setColors] = useState([]);
-  const [sizes, setSizes] = useState([]);
-  const [settings, setSettings] = useState([]);
+  const [handbags, setHandbags] = useState(null);
+  const [categories, setCategories] = useState(null);
+  const [bestSellersProducts, setBestSellersProducts] = useState(null);
+  const [trendingProducts, setTrendingProducts] = useState(null);
+  const [catalogs, setCatalogs] = useState(null);
+  const [colors, setColors] = useState(null);
+  const [sizes, setSizes] = useState(null);
+  const [settings, setSettings] = useState(null);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetchHandbags(),
-      fetchTrendingProducts(),
-      fetchCategoriesFromApi(),
-      fetchBestSellerProducts(),
-      fetchCatalogs(),
-      fetchColors(),
-      fetchSizes(),
-      fetchSettings()
-    ])
-      .then(() => setLoading(false))
-      .catch((error) => console.error(error));
+    setLoading(false);
+    // Promise.all([
+    //   fetchHandbags(),
+    //   fetchTrendingProducts(),
+    //   fetchCategoriesFromApi(),
+    //   fetchBestSellerProducts(),
+    //   fetchCatalogs(),
+    //   fetchColors(),
+    //   fetchSizes(),
+    //   fetchSettings()
+    // ])
+    //   .then(() => setLoading(false))
+    //   .catch((error) => console.error(error));
   }, []);
 
   const fetchHandbags = async () => {
@@ -162,3 +163,4 @@ export const HomeProvider = ({ children }) => {
 };
 
 export const useHome = () => useContext(HomeContext);
+

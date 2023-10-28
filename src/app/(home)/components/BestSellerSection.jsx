@@ -8,7 +8,6 @@ import { SwiperSlide } from "swiper/react";
 
 export default function BestSellerSection() {
   const { trendingProducts } = useHome();
-  console.log("🚀 ~ file: BestSellerSection.jsx:11 ~ BestSellerSection ~ trendingProducts:", trendingProducts)
   const breakpoint = useBreakpoint();
 
   const slides = trendingProducts.map((item, i) => (
@@ -36,8 +35,8 @@ export default function BestSellerSection() {
       {trendingProducts.length > 0 && (
         <section>
           <Title
-            name="Best Sellers"
-            description="Discover a stunning collection of products that combine style and functionality."
+            name='Best Sellers'
+            description='Discover a stunning collection of products that combine style and functionality.'
           />
           <Carousel slides={slides} />
         </section>
@@ -45,3 +44,4 @@ export default function BestSellerSection() {
     </>
   );
 }
+

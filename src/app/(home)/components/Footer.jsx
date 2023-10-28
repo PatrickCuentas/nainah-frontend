@@ -23,6 +23,7 @@ const menu = [
 
 export default function Footer() {
   const { settings, subscribe } = useHome();
+  console.log("🚀 ~ file: Footer.jsx:26 ~ Footer ~ settings:", settings);
   const breakpoint = useBreakpoint();
 
   const handleSubmit = (e) => {
@@ -36,6 +37,8 @@ export default function Footer() {
     });
     e.target.reset();
   };
+
+  if (!settings) return null;
 
   return (
     <>
@@ -60,33 +63,33 @@ export default function Footer() {
 
 function FooterMobile({ handleSubmit, settings, customerService, menu }) {
   return (
-    <footer className="p-5 space-y-4 bg-[#F5F5F5]">
+    <footer className='p-5 space-y-4 bg-[#F5F5F5]'>
       <section>
-        <form onSubmit={handleSubmit} className="space-y-[19px] text-[20px]">
-          <h2 className="text-xl">Newletter</h2>
-          <p className="text-xl">
+        <form onSubmit={handleSubmit} className='space-y-[19px] text-[20px]'>
+          <h2 className='text-xl'>Newletter</h2>
+          <p className='text-xl'>
             Sign up for our newsletter <br /> easily and be the first to know{" "}
             <br /> about our latest news.
           </p>
           <input
-            type="text"
-            name="email"
-            placeholder="Enter your email address"
-            className="text-[22px] outline-none border p-4 w-full bg-transparent border-[#C0C3C3]"
+            type='text'
+            name='email'
+            placeholder='Enter your email address'
+            className='text-[22px] outline-none border p-4 w-full bg-transparent border-[#C0C3C3]'
           />
           <button
-            type="submit"
-            className="bg-primary w-fit p-5 text-[24px] text-white"
+            type='submit'
+            className='bg-primary w-fit p-5 text-[24px] text-white'
           >
             SUBSCRIBE
           </button>
         </form>
       </section>
 
-      <section className="space-y-[19px]">
-        <h2 className="text-xl text-[#C0C3C3]">Customer Service</h2>
+      <section className='space-y-[19px]'>
+        <h2 className='text-xl text-[#C0C3C3]'>Customer Service</h2>
 
-        <ul className="space-y-[12px]">
+        <ul className='space-y-[12px]'>
           {customerService.map(([name, href], i) => (
             <li key={i}>
               <Link href={href}>{name}</Link>
@@ -95,10 +98,10 @@ function FooterMobile({ handleSubmit, settings, customerService, menu }) {
         </ul>
       </section>
 
-      <section className="space-y-[19px]">
-        <h2 className="text-xl text-[#C0C3C3]">Menu</h2>
+      <section className='space-y-[19px]'>
+        <h2 className='text-xl text-[#C0C3C3]'>Menu</h2>
 
-        <ul className="space-y-[12px]">
+        <ul className='space-y-[12px]'>
           {menu.map(([name, href], i) => (
             <li key={i}>
               <Link href={href}>{name}</Link>
@@ -107,47 +110,47 @@ function FooterMobile({ handleSubmit, settings, customerService, menu }) {
         </ul>
       </section>
 
-      <section className="space-y-[19px]">
-        <h2 className="text-xl text-[#C0C3C3]">Contact</h2>
+      <section className='space-y-[19px]'>
+        <h2 className='text-xl text-[#C0C3C3]'>Contact</h2>
 
-        <ul className="space-y-[12px]">
-          <li className="max-w-[12ch]">{settings.site_address}</li>
+        <ul className='space-y-[12px]'>
+          <li className='max-w-[12ch]'>{settings.site_address}</li>
           <li>{settings.site_phone}</li>
           <li>{settings.site_email}</li>
-          <li className="flex gap-[35px]">
+          <li className='flex gap-[35px]'>
             <Link href={settings.site_facebook}>
-              <img src="/icons/social/facebook.png" alt="Facebook Icon" />
+              <img src='/icons/social/facebook.png' alt='Facebook Icon' />
             </Link>
             <Link href={settings.site_instagram}>
-              <img src="/icons/social/instagram.png" alt="Instagram Icon" />
+              <img src='/icons/social/instagram.png' alt='Instagram Icon' />
             </Link>
             <Link href={settings.site_tiktok}>
-              <img src="/icons/social/tiktok.png" alt="Tiktok Icon" />
+              <img src='/icons/social/tiktok.png' alt='Tiktok Icon' />
             </Link>
           </li>
         </ul>
       </section>
 
-      <section className="space-y-[26px]">
-        <p className=" text-[20px]">© Nainah Collections</p>
+      <section className='space-y-[26px]'>
+        <p className=' text-[20px]'>© Nainah Collections</p>
       </section>
 
       <section>
-        <ul className="flex gap-[10px] items-center">
+        <ul className='flex gap-[10px] items-center'>
           <li>
-            <img src="/img/payment/afterpay.png" alt="Afterpay" />
+            <img src='/img/payment/afterpay.png' alt='Afterpay' />
           </li>
           <li>
-            <img src="/img/payment/authorize.png" alt="Authorize" />
+            <img src='/img/payment/authorize.png' alt='Authorize' />
           </li>
           <li>
-            <img src="/img/payment/visa.png" alt="Visa" />
+            <img src='/img/payment/visa.png' alt='Visa' />
           </li>
           <li>
-            <img src="/img/payment/master_card.png" alt="Master Card" />
+            <img src='/img/payment/master_card.png' alt='Master Card' />
           </li>
           <li>
-            <img src="/img/payment/maestro.png" alt="Maestro" />
+            <img src='/img/payment/maestro.png' alt='Maestro' />
           </li>
         </ul>
       </section>
@@ -157,32 +160,32 @@ function FooterMobile({ handleSubmit, settings, customerService, menu }) {
 
 function FooterDesktop({ handleSubmit, settings, customerService, menu }) {
   return (
-    <footer className="px-5 py-20 bg-[#F5F5F5] space-y-[25px]">
-      <div className="flex flex-row justify-between gap-8 space-y-4">
-        <section className="min-w-[358px]">
-          <form onSubmit={handleSubmit} className="space-y-[19px] text-[20px]">
-            <h2 className="text-xl">Newletter</h2>
-            <p className="text-xl">
+    <footer className='px-5 py-20 bg-[#F5F5F5] space-y-[25px]'>
+      <div className='flex flex-row justify-between gap-8 space-y-4'>
+        <section className='min-w-[358px]'>
+          <form onSubmit={handleSubmit} className='space-y-[19px] text-[20px]'>
+            <h2 className='text-xl'>Newletter</h2>
+            <p className='text-xl'>
               Sign up for our newsletter <br /> easily and be the first to know{" "}
               <br /> about our latest news.
             </p>
             <input
-              type="text"
-              name="email"
-              placeholder="Enter your email address"
-              className="text-[22px] outline-none border p-4 w-full bg-transparent border-[#C0C3C3]"
+              type='text'
+              name='email'
+              placeholder='Enter your email address'
+              className='text-[22px] outline-none border p-4 w-full bg-transparent border-[#C0C3C3]'
             />
             <button
-              type="submit"
-              className="bg-primary w-fit p-5 text-[24px] text-white"
+              type='submit'
+              className='bg-primary w-fit p-5 text-[24px] text-white'
             >
               SUBSCRIBE
             </button>
           </form>
         </section>
-        <section className="space-y-[19px]">
-          <h2 className="text-xl text-[#C0C3C3]">Customer Service</h2>
-          <ul className="space-y-[12px]">
+        <section className='space-y-[19px]'>
+          <h2 className='text-xl text-[#C0C3C3]'>Customer Service</h2>
+          <ul className='space-y-[12px]'>
             {customerService.map(([name, href], i) => (
               <li key={i}>
                 <Link href={href}>{name}</Link>
@@ -190,9 +193,9 @@ function FooterDesktop({ handleSubmit, settings, customerService, menu }) {
             ))}
           </ul>
         </section>
-        <section className="space-y-[19px]">
-          <h2 className="text-xl text-[#C0C3C3]">Menu</h2>
-          <ul className="space-y-[12px]">
+        <section className='space-y-[19px]'>
+          <h2 className='text-xl text-[#C0C3C3]'>Menu</h2>
+          <ul className='space-y-[12px]'>
             {menu.map(([name, href], i) => (
               <li key={i}>
                 <Link href={href}>{name}</Link>
@@ -200,48 +203,48 @@ function FooterDesktop({ handleSubmit, settings, customerService, menu }) {
             ))}
           </ul>
         </section>
-        <section className="space-y-[19px]">
-          <h2 className="text-xl text-[#C0C3C3]">Contact</h2>
-          <ul className="space-y-[12px]">
-            <li className="max-w-[12ch]">{settings.site_address}</li>
+        <section className='space-y-[19px]'>
+          <h2 className='text-xl text-[#C0C3C3]'>Contact</h2>
+          <ul className='space-y-[12px]'>
+            <li className='max-w-[12ch]'>{settings.site_address}</li>
             <li>{settings.site_phone}</li>
             <li>{settings.site_email}</li>
-            <li className="flex gap-[35px]">
+            <li className='flex gap-[35px]'>
               <Link href={settings.site_facebook}>
-                <img src="/icons/social/facebook.png" alt="Facebook Icon" />
+                <img src='/icons/social/facebook.png' alt='Facebook Icon' />
               </Link>
               <Link href={settings.site_instagram}>
-                <img src="/icons/social/instagram.png" alt="Instagram Icon" />
+                <img src='/icons/social/instagram.png' alt='Instagram Icon' />
               </Link>
               <Link href={settings.site_tiktok}>
-                <img src="/icons/social/tiktok.png" alt="Tiktok Icon" />
+                <img src='/icons/social/tiktok.png' alt='Tiktok Icon' />
               </Link>
             </li>
           </ul>
         </section>
       </div>
-      <hr className="bg-[#D9D9D9]" />
-      <div className="flex justify-between">
-        <section className="space-y-[26px]">
-          <p className=" text-[20px]">© Nainah Collections</p>
+      <hr className='bg-[#D9D9D9]' />
+      <div className='flex justify-between'>
+        <section className='space-y-[26px]'>
+          <p className=' text-[20px]'>© Nainah Collections</p>
         </section>
 
         <section>
-          <ul className="flex gap-[10px] items-center">
+          <ul className='flex gap-[10px] items-center'>
             <li>
-              <img src="/img/payment/afterpay.png" alt="Afterpay" />
+              <img src='/img/payment/afterpay.png' alt='Afterpay' />
             </li>
             <li>
-              <img src="/img/payment/authorize.png" alt="Authorize" />
+              <img src='/img/payment/authorize.png' alt='Authorize' />
             </li>
             <li>
-              <img src="/img/payment/visa.png" alt="Visa" />
+              <img src='/img/payment/visa.png' alt='Visa' />
             </li>
             <li>
-              <img src="/img/payment/master_card.png" alt="Master Card" />
+              <img src='/img/payment/master_card.png' alt='Master Card' />
             </li>
             <li>
-              <img src="/img/payment/maestro.png" alt="Maestro" />
+              <img src='/img/payment/maestro.png' alt='Maestro' />
             </li>
           </ul>
         </section>
@@ -249,3 +252,4 @@ function FooterDesktop({ handleSubmit, settings, customerService, menu }) {
     </footer>
   );
 }
+
