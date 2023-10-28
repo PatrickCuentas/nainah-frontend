@@ -23,7 +23,6 @@ const menu = [
 
 export default function Footer() {
   const { settings, subscribe } = useHome();
-  console.log("🚀 ~ file: Footer.jsx:26 ~ Footer ~ settings:", settings);
   const breakpoint = useBreakpoint();
 
   const handleSubmit = (e) => {

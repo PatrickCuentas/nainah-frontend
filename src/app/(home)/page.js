@@ -1,23 +1,27 @@
 "use client";
 
-// import HeroBanner from "./components/HeroBanner.jsx";
-// import CategoryBar from "./components/CategoryBar";
-// import CategoriesSection from "./components/CategoriesSection";
-// import BestSellerSection from "./components/BestSellerSection";
-// import NewCollectionSection from "./components/NewCollectionSection";
-// import HandbagsSection from "./components/HandbagsSection";
-// import Container from "@/lib/ui/Container.jsx";
-// import { useHome } from "@/lib/context/HomeContext.jsx";
+import HeroBanner from "./components/HeroBanner.jsx";
+import CategoryBar from "./components/CategoryBar";
+import CategoriesSection from "./components/CategoriesSection";
+import BestSellerSection from "./components/BestSellerSection";
+import NewCollectionSection from "./components/NewCollectionSection";
+import HandbagsSection from "./components/HandbagsSection";
+import Container from "@/lib/ui/Container.jsx";
+import { useHome } from "@/lib/context/HomeContext.jsx";
 
 export default function () {
-  // const { catalogs, settings } = useHome();
+	const { catalogs, settings } = useHome();
+	
+	if (!catalogs || !settings) {
+		return null;
+	}
 
-  // const sortedCatalogs = catalogs.sort((a, b) => a.order - b.order);
+  const sortedCatalogs = catalogs.sort((a, b) => a.order - b.order);
 
   return (
     <>
       Test Deployment Vercel
-      {/* <HeroBanner
+      <HeroBanner
         site_banner_small={settings.site_banner_small}
         site_banner_large={settings.site_banner_large}
       />
@@ -39,7 +43,7 @@ export default function () {
           />
         ))}
         <HandbagsSection />
-      </main> */}
+      </main>
     </>
   );
 }

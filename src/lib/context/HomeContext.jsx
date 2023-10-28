@@ -18,19 +18,19 @@ export const HomeProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
-    // Promise.all([
-    //   fetchHandbags(),
-    //   fetchTrendingProducts(),
-    //   fetchCategoriesFromApi(),
-    //   fetchBestSellerProducts(),
-    //   fetchCatalogs(),
-    //   fetchColors(),
-    //   fetchSizes(),
-    //   fetchSettings()
-    // ])
-    //   .then(() => setLoading(false))
-    //   .catch((error) => console.error(error));
+    // setLoading(false);
+    Promise.all([
+      fetchHandbags(),
+      fetchTrendingProducts(),
+      fetchCategoriesFromApi(),
+      fetchBestSellerProducts(),
+      fetchCatalogs(),
+      fetchColors(),
+      fetchSizes(),
+      fetchSettings()
+    ])
+      .then(() => setLoading(false))
+      .catch((error) => console.error(error));
   }, []);
 
   const fetchHandbags = async () => {
