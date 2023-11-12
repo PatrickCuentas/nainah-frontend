@@ -2,6 +2,7 @@ import ProductList from "@/lib/ui/ProductList";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import Title from "@/lib/ui/Title";
+import Container from "@/lib/ui/Container";
 
 export default function NewCollectionSection({
   active,
@@ -14,32 +15,33 @@ export default function NewCollectionSection({
   return (
     <>
       {active && products.length > 0 && (
-        <section className="space-y-4">
-          <Title name={name} description={description} />
-          <Image
-            src={banner}
-            width={1520}
-            height={980}
-            quality={100}
-            className="w-full object-cover"
-            alt={`Banner ${name}`}
-          />
-
-          <>
-            <div className="grid grid-cols-2 md:grid-cols-4 p-5 gap-5 mt-4">
-              {products.slice(0, show_quantity).map((product) => (
-                <ProductList
-                  key={product.id}
-                  product_title={product.product.title}
-                  title={product.title}
-                  image={product.image}
-                  newPrice={`$ ${product.sale_price}`}
-                  oldPrice={`$ ${product.price}`}
-                />
-              ))}
-            </div>
-          </>
-        </section>
+        <Container size="lg">
+          <div className="space-y-4">
+            <Title name={name} description={description} />
+            <Image
+              src={banner}
+              width={1520}
+              height={980}
+              quality={100}
+              className="w-full object-cover"
+              alt={`Banner ${name}`}
+            />
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-5 mt-4">
+                {products.slice(0, show_quantity).map((product) => (
+                  <ProductList
+                    key={product.id}
+                    product_title={product.product.title}
+                    title={product.title}
+                    image={product.image}
+                    newPrice={`$ ${product.sale_price}`}
+                    oldPrice={`$ ${product.price}`}
+                  />
+                ))}
+              </div>
+            </>
+          </div>
+        </Container>
       )}
     </>
   );

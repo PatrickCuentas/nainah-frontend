@@ -1,4 +1,4 @@
-import { Montserrat } from "next/font/google";
+import { Lato } from "next/font/google";
 import { AuthProvider } from "@/lib/context/AuthContext";
 
 // Import Swiper styles
@@ -9,9 +9,9 @@ import "swiper/css/scrollbar";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
-const montserrat = Montserrat({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ["300", "400", "500"]
+  weight: ["100", "300", "400", "700", "900"]
 });
 
 export const metadata = {
@@ -22,7 +22,7 @@ export const metadata = {
 export default function ({ children }) {
   return (
     <html lang="es" data-theme="light">
-      <body className={montserrat.className}>
+      <body className={lato.className}>
         <AuthProvider>{children}</AuthProvider>
         <Toaster />
       </body>

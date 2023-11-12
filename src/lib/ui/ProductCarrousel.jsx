@@ -11,7 +11,7 @@ export default function ProductCarrousel({
   return (
     <div className="border-[1px] border-solid border-[#eee] p-5 rounded-[13px] w-full">
       <div>
-        <img src={image} alt="" className="object-cover w-full" />
+        <img src={image} alt="" className="object-cover w-full aspect-[9/13]" />
       </div>
       <div className="flex flex-wrap justify-between mt-4">
         <p className="text-black font-bold">{title}</p>
@@ -23,9 +23,11 @@ export default function ProductCarrousel({
       <p className="text-sm text-start mb-4 text-black">{category.name}</p>
       <Link
         href={`/products/${parseUrl(title)}`}
-        className="min-w-full py-4 block text-center bg-[#FFBCCC]"
+        className="group min-w-full py-4 block text-center bg-[#FFBCCC]"
       >
-        <span className="text-white hover:text-[#ED8097]">VIEW DETAILS</span>
+        <span className="text-white group-hover:text-[#ED8097] transition-colors duration-200">
+          VIEW DETAILS
+        </span>
       </Link>
     </div>
   );

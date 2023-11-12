@@ -26,7 +26,7 @@ const items = [
 
 export default function CategoryBar() {
   return (
-    <div className="bg-[rgba(255,190,206,1)] p-5">
+    <div className="bg-[rgba(255,190,206,1)] px-[3rem] py-5">
       <div className="flex justify-between items-center mx-auto w-full max-w-[30rem] md:max-w-[68.75rem]">
         {items.map((item, index) => (
           <Item key={index} icon={item.icon} title={item.title} />

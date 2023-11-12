@@ -4,6 +4,7 @@ import BasicProductCarrousel from "@/lib/ui/BasicProductCarrousel";
 import useBreakpoint from "@/lib/hooks/useBreakpoint";
 import Title from "@/lib/ui/Title";
 import { useHome } from "@/lib/context/HomeContext";
+import Container from "@/lib/ui/Container";
 
 export default function HandbagsSection() {
   const { handbags } = useHome();
@@ -23,13 +24,15 @@ export default function HandbagsSection() {
   return (
     <>
       {handbags.length > 0 && (
-        <section className="p-5">
-          <Title
-            name="New Handbags"
-            description="Discover a stunning collection of products that combine style and functionality."
-          />
-          <Carousel slides={slides} />
-        </section>
+        <Container size="lg">
+          <section className="px-0 lg:px-[3rem]">
+            <Title
+              name="New Handbags"
+              description="Discover a stunning collection of products that combine style and functionality."
+            />
+            <Carousel slides={slides} />
+          </section>
+        </Container>
       )}
     </>
   );

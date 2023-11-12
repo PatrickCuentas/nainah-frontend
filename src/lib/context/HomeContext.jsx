@@ -18,7 +18,6 @@ export const HomeProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // setLoading(false);
     Promise.all([
       fetchHandbags(),
       fetchTrendingProducts(),
@@ -139,7 +138,17 @@ export const HomeProvider = ({ children }) => {
     }
   };
 
-  if (loading) {
+  if (
+    loading ||
+    !handbags ||
+    !categories ||
+    !trendingProducts ||
+    !catalogs ||
+    !colors ||
+    !sizes ||
+    !bestSellersProducts ||
+    !settings
+  ) {
     return <Spinner />;
   }
 
@@ -163,4 +172,3 @@ export const HomeProvider = ({ children }) => {
 };
 
 export const useHome = () => useContext(HomeContext);
-
